@@ -1,0 +1,51 @@
+<h1>User Login Page</h1>
+{{#if message}}
+    <p class="error">{{message}}</p>
+{{/if}}
+<div class="login-wraper">
+    <form action="/users/login" method="post" class="login-form">
+    <label for="email">EMAIL: 
+    <input type="email" name="email" id="email">
+    </label>
+    <label for="password">PASSWORD: 
+    <input type="password" name="password" id="password">
+    </label>
+    <button type="submit" class="submit-button">LOGIN</button>
+</form>
+
+</div>
+
+<style>
+    input{
+        outline: none;
+        padding: 2px;
+        
+    }
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        min-height: 50vh;
+        background-color: teal;
+        width: 50%;
+        color: white;
+    }
+
+    .login-wraper{
+        display: flex;
+        justify-content: center;
+    }
+    .submit-button{
+        background-color: tomato; 
+        color:white; 
+        width:fit-content; 
+        border:none; 
+        cursor: pointer;
+        align-self: flex-end;
+        padding: 10px;
+        margin-right: 10px;
+    }
+    .error{
+        color: red;
+    }
+</style>

@@ -1,0 +1,51 @@
+<h1>User Signup Page</h1>
+<div class="signup-wraper">
+    <form action="/users/signup" method="post" class="signup_form">
+    <label for="full_name">FULL NAME: 
+    <input type="text" name="user_name" id="full_name">
+    </label>
+    <label for="email">EMAIL: 
+    <input type="email" name="email" id="email">
+    </label>
+    <label for="password">PASSWORD: 
+    <input type="password" name="password" id="password">
+    </label>
+    <label for="confirm_password">RE-PASSWORD: 
+    <input type="password" name="confirm_password" id="confirm_password">
+    </label>
+    <button type="submit" class="submit-button">CREATE ACCOUNT</button>
+</form>
+
+</div>
+
+<style>
+    input{
+        outline: none;
+        padding: 2px;
+        
+    }
+    .signup_form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        min-height: 50vh;
+        background-color: teal;
+        width: 50%;
+        color: white;
+    }
+
+    .signup-wraper{
+        display: flex;
+        justify-content: center;
+    }
+    .submit-button{
+        background-color: tomato; 
+        color:white; 
+        width:fit-content; 
+        border:none; 
+        cursor: pointer;
+        align-self: flex-end;
+        padding: 10px;
+        margin-right: 10px;
+    }
+</style>
