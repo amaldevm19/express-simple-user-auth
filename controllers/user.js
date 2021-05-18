@@ -13,8 +13,23 @@ const user_controller = {
         const new_user = new User({
             ...req.body
         })
-        new_user.save();
-        res.redirect("/users/login");
+        let error = ""
+        if(req.body.password.length <2){
+            error = "Password must be provided"
+        }else if(req.body.password != req.body.confirm_password){
+            error = "Password not matching"
+        }
+        if(error != ""){
+            return  res.render('user/signup', { title: 'User Signup', error});
+        }
+        new_user.save((err)=>{
+            if(!err){
+                res.redirect("/users/login");
+            }else if (err.name === 'MongoError' && err.code === 11000) {
+                error = "User already exist" ;
+            }
+            res.render('user/signup', { title: 'User Signup', error});
+        });  
     },
     login_function:(req,res,next)=>{
         User.findOne({email: req.body.email}, (err, user)=>{

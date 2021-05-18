@@ -1,4 +1,7 @@
 <h1>User Signup Page</h1>
+{{#if error}}
+    <p class="error">{{error}}</p>
+{{/if}}
 <div class="signup-wraper">
     <form action="/users/signup" method="post" class="signup_form">
     <label for="full_name">FULL NAME: 
@@ -47,5 +50,8 @@
         align-self: flex-end;
         padding: 10px;
         margin-right: 10px;
+    }
+    .error{
+        color: red;
     }
 </style>
